@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { ScreenHoc } from '../components/Screen'
 import { StyleSheet,View, Text } from 'react-native'
-import Button from 'antd-mobile-rn/lib/button'
-import List from 'antd-mobile-rn/lib/list'
-import InputItem from 'antd-mobile-rn/lib/input-item'
-import Toast from 'antd-mobile-rn/lib/toast'
+import { Button, List, InputItem, Toast } from 'antd-mobile-rn'
 
 const styles = StyleSheet.create({
   button: {
