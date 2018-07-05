@@ -32,7 +32,7 @@ export default class Login extends Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-        <InputItem value={ this.state.userName }
+        <InputItem autoCapitalize='none' value={ this.state.userName }
           onChange={ (value) => this.setState({ userName: value }) }>
           用户名
         </InputItem>
