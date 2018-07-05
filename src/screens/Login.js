@@ -1,15 +1,26 @@
 import React, { Component } from 'react'
 import { ScreenHoc } from '../components/Screen'
-import { View, Text } from 'react-native'
+import { View, Text, StatusBar, StyleSheet } from 'react-native'
 import { Button, List, InputItem, WingBlank } from 'antd-mobile-rn'
 import DeviceStorage from '../services/Storage'
 import Toast from '../services/Toast'
+import Colors from '../services/Colors'
+import { SafeAreaView } from 'react-navigation'
 
-@ScreenHoc
+const styles = StyleSheet.create({
+  button: {
+    margin: 10,
+  }
+})
+
 export default class Login extends Component {
   state = {
     userName: '',
     password: ''
+  }
+
+  static navigationOptions = {
+    header: null,
   }
 
   login = async () => {
@@ -20,23 +31,19 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View>
-        <List>
-          <InputItem value={ this.state.userName }
-            onChange={ (value) => this.setState({ userName: value }) }>
-            用户名
-          </InputItem>
-          <InputItem type='password' value={ this.state.password }
-            onChange={ (value) => this.setState({ password: value }) }>
-            密码
-          </InputItem>
-          <WingBlank>
-            <Button type='primary' onClick={ this.login }>
-              登录
-            </Button>
-          </WingBlank>
-        </List>
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+        <InputItem value={ this.state.userName }
+          onChange={ (value) => this.setState({ userName: value }) }>
+          用户名
+        </InputItem>
+        <InputItem type='password' value={ this.state.password }
+          onChange={ (value) => this.setState({ password: value }) }>
+          密码
+        </InputItem>
+        <Button type='primary' style={ styles.button } onClick={ this.login }>
+          登录
+        </Button>
+      </SafeAreaView>
     )
   }
 }

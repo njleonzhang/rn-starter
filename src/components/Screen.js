@@ -5,20 +5,26 @@ import {
   ScrollView
 } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
+import Colors from '../services/Colors'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9f9f9'
+    backgroundColor: Colors.background
   },
 })
 
 export const ScreenHoc = (Comp) => {
-  return ({ children, ...props }) => (
-    <SafeAreaView style={ styles.container }>
-      <Comp { ...props }>
-        { children }
-      </Comp>
-    </SafeAreaView>
-  )
+  let Screen = function({ children, ...props }) {
+    return (
+      <SafeAreaView style={ styles.container }>
+        <Comp { ...props }>
+          { children }
+        </Comp>
+      </SafeAreaView>
+    )
+  }
+
+  Screen.navigationOptions = Comp.navigationOptions
+  return Screen
 }

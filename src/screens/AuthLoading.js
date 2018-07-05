@@ -9,6 +9,12 @@ import DeviceStorage from '../services/Storage'
 
 @ScreenHoc
 export default class AuthLoadingScreen extends React.Component {
+  static navigationOptions = {
+    header: {
+      visible: false
+    }
+  }
+
   constructor(props) {
     super(props)
     this._bootstrapAsync()
