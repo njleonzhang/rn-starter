@@ -2,14 +2,18 @@
 
 import { AsyncStorage } from 'react-native';
 
-class DeviceStorage {
+function fakePromise(fakeValue = null) {
   // workaround issue https://github.com/facebook/react-native/issues/12830
+  return new Promise((resolve) => {
+    resolve(value)
+  })
+}
 
-  static get(key) {
+class DeviceStorage {
+
+  static get(key, fakeValue = null) {
     if (__DEV__) {
-      return new Promise((resolve) => {
-        resolve(null)
-      })
+      return fakePromise(fakeValue)
     }
 
     return AsyncStorage.getItem(key).then(function(value) {
@@ -17,20 +21,17 @@ class DeviceStorage {
     });
   }
 
-  static save(key, value) {
+  static save(key, value, fakeValue = null) {
     if (__DEV__) {
-      return new Promise((resolve) => {
-        resolve(null)
-      })
+      return fakePromise(fakeValue)
     }
+
     return AsyncStorage.setItem(key, JSON.stringify(value));
   }
 
-  static update(key, value) {
+  static update(key, value, fakeValue = null) {
     if (__DEV__) {
-      return new Promise((resolve) => {
-        resolve(null)
-      })
+      return fakePromise(fakeValue)
     }
 
     return deviceStorage.get(key).then((item) => {
@@ -39,11 +40,9 @@ class DeviceStorage {
     });
   }
 
-  static delete(key) {
+  static delete(key, fakeValue = null) {
     if (__DEV__) {
-      return new Promise((resolve) => {
-        resolve(null)
-      })
+      return fakePromise(fakeValue)
     }
 
     return AsyncStorage.removeItem(key);
