@@ -6,6 +6,7 @@ import DeviceStorage from '../services/Storage'
 import Toast from '../services/Toast'
 import Colors from '../services/Colors'
 import { SafeAreaView } from 'react-navigation'
+import JPushModule from 'jpush-react-native'
 
 const styles = StyleSheet.create({
   button: {
@@ -43,6 +44,12 @@ export default class Login extends Component {
         <Button type='primary' style={ styles.button } onClick={ this.login }>
           登录
         </Button>
+        <Button type='primary' onClick={() => {
+          JPushModule.getRegistrationID(regId => {
+            console.log(regId)
+            DeviceStorage.save('jPushRegId', regId)
+          })
+        }}>注册jpush</Button>
       </SafeAreaView>
     )
   }

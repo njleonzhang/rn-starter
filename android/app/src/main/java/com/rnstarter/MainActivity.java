@@ -1,4 +1,4 @@
-package com.rnstarter;
+package com.zywulian.leon.test;
 
 import com.facebook.react.ReactActivity;
 
