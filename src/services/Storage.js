@@ -5,7 +5,7 @@ import { AsyncStorage } from 'react-native';
 function fakePromise(fakeValue = null) {
   // workaround issue https://github.com/facebook/react-native/issues/12830
   return new Promise((resolve) => {
-    resolve(value)
+    resolve(fakeValue)
   })
 }
 
