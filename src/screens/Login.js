@@ -7,6 +7,7 @@ import Toast from '../services/Toast'
 import Colors from '../services/Colors'
 import { SafeAreaView } from 'react-navigation'
 import JPushModule from 'jpush-react-native'
+import { isAndroid } from '../services/Tools'
 
 const styles = StyleSheet.create({
   button: {
@@ -45,11 +46,13 @@ export default class Login extends Component {
           登录
         </Button>
         <Button type='primary' onClick={() => {
+          isAndroid() && JPushModule.initPush()
+
           JPushModule.getRegistrationID(regId => {
             console.log(regId)
             DeviceStorage.save('jPushRegId', regId)
           })
-        }}>注册jpush</Button>
+        }}>注册jPush</Button>
       </SafeAreaView>
     )
   }

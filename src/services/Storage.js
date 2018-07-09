@@ -4,9 +4,16 @@ import { AsyncStorage } from 'react-native';
 
 class DeviceStorage {
   static get(key) {
-    return AsyncStorage.getItem(key).then(function(value) {
-      return JSON.parse(value);
-    });
+    // workaround issue https://github.com/facebook/react-native/issues/12830
+    if (__DEV__) {
+      new Promise((resolve) => {
+        resolve(null)
+      })
+    } else {
+      return AsyncStorage.getItem(key).then(function(value) {
+        return JSON.parse(value);
+      });
+    }
   }
 
   static save(key, value) {
