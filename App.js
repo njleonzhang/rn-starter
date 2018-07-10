@@ -5,9 +5,6 @@ import OrderDetail from './src/screens/OrderDetail'
 import Login from './src/screens/Login'
 import AuthLoading from './src/screens/AuthLoading'
 import Colors from './src/services/Colors'
-import { YellowBox } from 'react-native'
-import JPushModule from 'jpush-react-native'
-import DeviceStorage from './src/services/Storage'
 
 console.disableYellowBox = true
 

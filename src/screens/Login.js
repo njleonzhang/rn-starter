@@ -45,14 +45,6 @@ export default class Login extends Component {
         <Button type='primary' style={ styles.button } onClick={ this.login }>
           登录
         </Button>
-        <Button type='primary' onClick={() => {
-          isAndroid() && JPushModule.initPush()
-
-          JPushModule.getRegistrationID(regId => {
-            console.log(regId)
-            DeviceStorage.save('jPushRegId', regId)
-          })
-        }}>注册jPush</Button>
       </SafeAreaView>
     )
   }

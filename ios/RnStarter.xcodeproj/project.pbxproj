@@ -708,10 +708,10 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = BXHYDTU89D;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -1215,7 +1215,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RnStarter/RnStarter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BXHYDTU89D;
@@ -1233,7 +1233,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zywulian.leon.test;
 				PRODUCT_NAME = RnStarter;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5388f7bd-d845-42da-9f0f-cbdc31d5e54f";
+				PROVISIONING_PROFILE_SPECIFIER = leonTestProfile;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1244,9 +1245,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RnStarter/RnStarter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BXHYDTU89D;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/jpush-react-native/ios/RCTJPushModule",

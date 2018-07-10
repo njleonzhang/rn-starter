@@ -6,12 +6,26 @@ import {
 } from 'react-native'
 import { ScreenHoc } from '../components/Screen'
 import DeviceStorage from '../services/Storage'
+import { retryInitJPush } from '../services/JPushHelper'
+import JPushModule from 'jpush-react-native'
 
 @ScreenHoc
 export default class AuthLoadingScreen extends React.Component {
   static navigationOptions = {
     header: {
       visible: false
+    }
+  }
+
+  async componentDidMount() {
+    try {
+      await retryInitJPush()
+      JPushModule.getRegistrationID(regId => {
+        console.log(regId)
+        DeviceStorage.save('jPushRegId', regId)
+      })
+    } catch(e) {
+      console.error(e, 'init jPush fail after retry 10 times')
     }
   }
 

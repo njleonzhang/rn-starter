@@ -23,6 +23,12 @@
   [JPUSHService registerDeviceToken:deviceToken];
 }
 
+- (void) application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+  NSLog(@"token error is: %@", error);
+  NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
   [[NSNotificationCenter defaultCenter] postNotificationName:kJPFDidReceiveRemoteNotification object:userInfo];
@@ -60,9 +66,8 @@
   completionHandler();
 }
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{  
   [JPUSHService setupWithOption:launchOptions appKey:@"f8168399f7244a75ef6e559c"
                         channel:nil apsForProduction:nil];
 
@@ -75,7 +80,7 @@
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
+  
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
